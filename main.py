@@ -20,13 +20,13 @@ bot = telebot.TeleBot(config.token)
 def welcome(m):
     cid = m.chat.id
     markup = types.InlineKeyboardMarkup()
-    b = types.InlineKeyboardButton("MY father",callback_data='mr.nitto')
+    b = types.InlineKeyboardButton("MY father",callback_data='@mr_nitto')
     markup.add(b)
-    nn = types.InlineKeyboardButton("Inline Mode", switch_inline_query='')
+    nn = types.InlineKeyboardButton("Inline Model", switch_inline_query='')
     markup.add(nn)
     redis = r.StrictRedis(host='localhost', port=6379, db=0)
     redis.sadd('start','{}'.format(m.from_user.id))
-    ret_msg = bot.send_message(cid, "HI \n\n Welcome to GrandexBot \n\n PLease choose one :)", disable_notification=True, reply_markup=markup)
+    ret_msg = bot.send_message(cid, "*Hello And \n\n Welcome to GrandexBot \n\n PLease choose one :-D*", disable_notification=True, reply_markup=markup)
     assert ret_msg.message_id
 
 @bot.callback_query_handler(func=lambda call: True)
@@ -82,10 +82,10 @@ def c(m):
 def on_ping(message):
     bot.reply_to(message, "*I am online*", parse_mode="Markdown")
 
-@bot.message_handler(commands=['unf'])
+@bot.message_handler(commands=['grandex'])
 def handler(m):
     cid = m.chat.id
-    bot.send_message(cid, "I am UNF BOT :)))))\n dev by Mr.nitro", parse_mode="Markdown")
+    bot.send_message(cid, "I am Grandex BOT :)))))\n dev by Mr.nitro", parse_mode="Markdown")
     bot.send_chat_action(cid, "upload_photo")
     bot.send_photo(cid, open('slackbot-story1-582x436.jpg'), caption="UNF  \xF0\x9F\x98\x9C")
 
@@ -152,7 +152,7 @@ def command_map(m):
 
 @bot.message_handler(commands=['dev'])
 def handle_message(msg):
-	bot.reply_to(msg, text="dev by parsa alemi")
+	bot.reply_to(msg, text="*dev by Mr.nitro*")
 
 @bot.inline_handler(lambda query: query.query == 'pic')
 def query_photo(inline_query):
