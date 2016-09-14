@@ -20,33 +20,33 @@ bot = telebot.TeleBot(config.token)
 def welcome(m):
     cid = m.chat.id
     markup = types.InlineKeyboardMarkup()
-    b = types.InlineKeyboardButton("MY OWner",callback_data='parsa')
+    b = types.InlineKeyboardButton("MY father",callback_data='mr.nitto')
     markup.add(b)
     nn = types.InlineKeyboardButton("Inline Mode", switch_inline_query='')
     markup.add(nn)
     redis = r.StrictRedis(host='localhost', port=6379, db=0)
     redis.sadd('start','{}'.format(m.from_user.id))
-    ret_msg = bot.send_message(cid, "HI \n\n Welcome to UNF BOT \n\n PLease choose one :)", disable_notification=True, reply_markup=markup)
+    ret_msg = bot.send_message(cid, "HI \n\n Welcome to GrandexBot \n\n PLease choose one :)", disable_notification=True, reply_markup=markup)
     assert ret_msg.message_id
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
     if call.message:
-        if call.data == "parsa":
-            bot.answer_callback_query(callback_query_id=call.id, show_alert=True, text="MY owner is : @parsa alemi\nspecial tnx to my friends :D")
+        if call.data == "mr.nitro":
+            bot.answer_callback_query(callback_query_id=call.id, show_alert=True, text="MY father is : @mr_nitro\nspecial tnx to my friends :D")
 
 @bot.message_handler(commands=['help'])
 def welcome(m):
     cid = m.chat.id
     markup = types.InlineKeyboardMarkup()
-    ret_msg = bot.send_message(cid, "WE will add help soon", disable_notification=True, reply_markup=markup)
+    ret_msg = bot.send_message(cid, "Write Soon...", disable_notification=True, reply_markup=markup)
     assert ret_msg.message_id
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
     if call.message:
         if call.data == "music":
-            bot.answer_callback_query(callback_query_id=call.id, show_alert=True, text="@unfrobot music [music name]\n smart and advanced music searcher")
+            bot.answer_callback_query(callback_query_id=call.id, show_alert=True, text=" music [music name]\n smart and advanced music searcher")
 
 @bot.message_handler(commands=['id'])
 def id(m):      # info menu
@@ -76,7 +76,7 @@ def rank(m):
 def c(m):
     uid = m.chat.id
     bot.send_chat_action(uid, 'typing')
-    bot.send_contact(uid, phone_number="+989398391927", first_name="parsaalemi")
+    bot.send_contact(uid, phone_number="+6288976892796", first_name="Mr.nitro")
 
 @bot.message_handler(commands=["ping"])
 def on_ping(message):
@@ -85,7 +85,7 @@ def on_ping(message):
 @bot.message_handler(commands=['unf'])
 def handler(m):
     cid = m.chat.id
-    bot.send_message(cid, "I am UNF BOT :)))))\n dev by parsa alemi", parse_mode="Markdown")
+    bot.send_message(cid, "I am UNF BOT :)))))\n dev by Mr.nitro", parse_mode="Markdown")
     bot.send_chat_action(cid, "upload_photo")
     bot.send_photo(cid, open('slackbot-story1-582x436.jpg'), caption="UNF  \xF0\x9F\x98\x9C")
 
@@ -125,7 +125,7 @@ def send(m):
     usr = m.from_user.username
     str = m.text
     txt = str.replace('/send', '')
-    bot.send_message(senderid, "*i have sent your pm to parsa :)*", parse_mode="Markdown")
+    bot.send_message(senderid, "*i have sent your pm to mr.nitro :)*", parse_mode="Markdown")
     bot.send_message(config.is_sudo, "msg : {}\nid : {}\nname : {}\nUsername : @{}".format(txt,senderid,first,usr))
 
 @bot.message_handler(commands=['aparat'])
