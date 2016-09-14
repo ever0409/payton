@@ -24,6 +24,8 @@ def welcome(m):
     markup.add(b)
     nn = types.InlineKeyboardButton("Inline Model", switch_inline_query='')
     markup.add(nn)
+    mr = types.InlineKeyboardButton("Info", switch_inline_query='Info')
+    markup.add(mr)
     redis = r.StrictRedis(host='localhost', port=6379, db=0)
     redis.sadd('start','{}'.format(m.from_user.id))
     ret_msg = bot.send_message(cid, "*Hello And*\n\n Welcome to GrandexBot \n\n PLease choose one :-D", disable_notification=True, reply_markup=markup)
