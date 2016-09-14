@@ -20,9 +20,9 @@ bot = telebot.TeleBot(config.token)
 def welcome(m):
     cid = m.chat.id
     markup = types.InlineKeyboardMarkup()
-    b = types.InlineKeyboardButton("سازنده من",callback_data='@mr_nitro')
+    b = types.InlineKeyboardButton("My father",callback_data='@mr_nitro')
     markup.add(b)
-    nn = types.InlineKeyboardButton("مدل اینلاین", switch_inline_query='')
+    nn = types.InlineKeyboardButton("Inline Model", switch_inline_query='')
     markup.add(nn)
     redis = r.StrictRedis(host='localhost', port=6379, db=0)
     redis.sadd('start','{}'.format(m.from_user.id))
