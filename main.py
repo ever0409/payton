@@ -100,7 +100,7 @@ def stats(m):
 def mr(m):
     cid = m.chat.id
     markup = types.InlineKeyboardMarkup()
-    ret_msg = bot.send_message(cid, "Write Soo...", disable_notification=True, reply_markup=markup)
+    ret_msg = bot.send_message(cid, "Write"..m.from.id.."t", disable_notification=True, reply_markup=markup)
     assert ret_msg.message_id
 
 @bot.message_handler(commands=['idme'])
