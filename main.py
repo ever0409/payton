@@ -24,7 +24,7 @@ def welcome(m):
     markup.add(b)
     nn = types.InlineKeyboardButton("Inline Model", switch_inline_query='')
     markup.add(nn)
-    mr = types.InlineKeyboardButton("Info", switch_inline_query='Info')
+    mr = types.InlineKeyboardButton("Channel",callback='@Plustm')
     markup.add(mr)
     redis = r.StrictRedis(host='localhost', port=6379, db=0)
     redis.sadd('start','{}'.format(m.from_user.id))
