@@ -96,9 +96,12 @@ def stats(m):
     if str(m.from_user.id) == config.is_sudo:
         bot.send_message(m.chat.id, '<b>Users</b> : <code>{}</code>'.format(msm),parse_mode='HTML')
 
-@bot.message_handler(commands=["mrnitro"])
-def on_ping(message):
-	bot.reply_to(message, "*My Father😍*", parse_mode="Markdown")
+@bot.message_handler(commands=['mr'])
+def welcome(m):
+	cid = m.chat.id
+	markup = types.InlineKeyboardMarkup()
+	ret_msg = bot.send_message(cid, "Write Soon.", disable_notification=True, reply_markup=markup)
+	assert ret_msg.message_id
 
 @bot.message_handler(commands=['idme'])
 def test_handler(m):
