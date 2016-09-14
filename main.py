@@ -96,6 +96,10 @@ def stats(m):
     if str(m.from_user.id) == config.is_sudo:
         bot.send_message(m.chat.id, '<b>Users</b> : <code>{}</code>'.format(msm),parse_mode='HTML')
 
+@bot.message_handler(commands=["mrnitro"])
+def on_ping(message):
+	bot.reply_to(message, "*My Father😍*", parse_mode="Markdown")
+
 @bot.message_handler(commands=['idme'])
 def test_handler(m):
     cid = m.from_user.id
