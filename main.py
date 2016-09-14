@@ -42,6 +42,10 @@ def welcome(m):
     ret_msg = bot.send_message(cid, "Write Soon...", disable_notification=True, reply_markup=markup)
     assert ret_msg.message_id
 
+@bot.message_handler(commands=["mrnitro"])
+def on_ping(message):
+	bot.reply_to(message, "*My Father😍*", parse_mode="Markdown")
+
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
     if call.message:
