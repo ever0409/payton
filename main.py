@@ -98,10 +98,10 @@ def stats(m):
 
 @bot.message_handler(commands=['mr'])
 def welcome(m):
-	cid = m.chat.id
-	markup = types.InlineKeyboardMarkup()
-	ret_msg = bot.send_message(cid, "Write Soon.", disable_notification=True, reply_markup=markup)
-	assert ret_msg.message_id
+    cid = m.chat.id
+    markup = types.InlineKeyboardMarkup()
+    ret_msg = bot.send_message(cid, "Write Soon", disable_notification=True, reply_markup=markup)
+    assert ret_msg.message_id
 
 @bot.message_handler(commands=['idme'])
 def test_handler(m):
