@@ -26,13 +26,13 @@ def welcome(m):
     markup.add(nn)
     redis = r.StrictRedis(host='localhost', port=6379, db=0)
     redis.sadd('start','{}'.format(m.from_user.id))
-    ret_msg = bot.send_message(cid, "<b>Hello And</b> \n\n Welcome to GrandexBot \n\n PLease choose one :-D</b>", disable_notification=True, reply_markup=markup)
+    ret_msg = bot.send_message(cid, "*Hello And*\n\n Welcome to GrandexBot \n\n PLease choose one :-D", disable_notification=True, reply_markup=markup)
     assert ret_msg.message_id
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
     if call.message:
-        if call.data == "mr.nitro":
+        if call.data == "@mr.nitro":
             bot.answer_callback_query(callback_query_id=call.id, show_alert=True, text="MY father is : @mr_nitro\nspecial tnx to my friends :D")
 
 @bot.message_handler(commands=['help'])
