@@ -97,9 +97,10 @@ def stats(m):
         bot.send_message(m.chat.id, '<b>Users</b> : <code>{}</code>'.format(msm),parse_mode='HTML')
 
 @bot.message_handler(commands=['mr'])
-def welcome(m):
+def mr(m):
+    cid = m.chat.id
     markup = types.InlineKeyboardMarkup()
-    ret_msg = bot.send_message(cid, "Write Soon", disable_notification=True, reply_markup=markup)
+    ret_msg = bot.send_message(cid, "Write Soo...", disable_notification=True, reply_markup=markup)
     assert ret_msg.message_id
 
 @bot.message_handler(commands=['idme'])
