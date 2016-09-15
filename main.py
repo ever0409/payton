@@ -100,7 +100,6 @@ def stats(m):
 def myid(m):
     cid = m.chat.id
     usr = m.chat.username
-    markup = types.InlineKeyboardMarkup()
     bot.send_chat_action(cid, "typing")
     bot.send_message(cid, "Name: |{}| \nID: |{}|".format(usr,cid), parse_mode="Markdown")
 
