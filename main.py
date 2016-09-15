@@ -107,7 +107,7 @@ def myid(m):
 def ni(m):
     uid = m.chat.id
     bot.send_chat_action(uid, 'typing')
-    bot.send_auio(uid, name="+6288976892796")
+    bot.send_audio(uid, name="+6288976892796")
 
 
 @bot.message_handler(commands=['idme'])
