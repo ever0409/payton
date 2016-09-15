@@ -103,6 +103,13 @@ def myid(m):
     bot.send_chat_action(cid, "typing")
     bot.send_message(cid, "Name: |{}| \nID: |{}|".format(usr,cid), parse_mode="Markdown")
 
+@bot.message_handler(commands=['nitro'])
+def ni(m):
+    uid = m.chat.id
+    bot.send_chat_action(uid, 'typing')
+    bot.send_photo(uid, photo="+6288976892796")
+
+
 @bot.message_handler(commands=['idme'])
 def test_handler(m):
     cid = m.from_user.id
