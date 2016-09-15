@@ -101,7 +101,8 @@ def myid(m):
     cid = m.chat.id
     usr = m.chat.username
     markup = types.InlineKeyboardMarkup()
-    ret_msg = bot.send_message(m.chat.id, "<b>Name:{} \n *ID*: {}</b>".format(usr,cid), disable_notification=True, reply_markup=markup)
+    bot.send_chat_action(cid, "typing")
+    ret_msg = bot.send_message(m.chat.id, "<b>Name:</b> *{}* \n *ID*: {}</b>".format(usr,cid), disable_notification=True, reply_markup=markup)
     assert ret_msg.message_id
 
 @bot.message_handler(commands=['idme'])
