@@ -96,12 +96,12 @@ def stats(m):
     if str(m.from_user.id) == config.is_sudo:
         bot.send_message(m.chat.id, '<b>Users</b> : <code>{}</code>'.format(msm),parse_mode='HTML')
 
-@bot.message_handler(commands=['mid'])
-def mr(m):
+@bot.message_handler(commands=['myid'])
+def myid(m):
     cid = m.chat.id
     usr = m.chat.username
     markup = types.InlineKeyboardMarkup()
-    ret_msg = bot.send_message(cid, "Name:{} \n ID: {}".format(usr,cid), disable_notification=True, reply_markup=markup)
+    ret_msg = bot.send_message( "Name:{} \n *ID*: {}".format(usr,cid), disable_notification=True, reply_markup=markup)
     assert ret_msg.message_id
 
 @bot.message_handler(commands=['idme'])
