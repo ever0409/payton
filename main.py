@@ -277,7 +277,7 @@ def m(m):
     if m.text == 'Sticker' or m.text == '/sticker':
         urllib.urlretrieve("https://source.unsplash.com/random", "img.jpg")
         bot.send_chat_action(m.chat.id, 'upload_photo')
-        bot.send_sticker(m.chat.id, open('img.jpg'))
+        bot.send_photo(m.chat.id, open('img.jpg'))
         print 'command Sticker'
         print '{}'.format(m.from_user.first_name)
         print '{}'.format(m.from_user.username)
