@@ -274,7 +274,7 @@ def on_user_joins(m):
 
 @bot.message_handler(func=lambda message: True)
 def m(m):
-    if m.text == 'Sticker' or m.text == '/sticker':
+    if m.text == 'Sticker' or m.text == '/photo':
         urllib.urlretrieve("https://source.unsplash.com/random", "img.jpg")
         bot.send_chat_action(m.chat.id, 'upload_photo')
         bot.send_photo(m.chat.id, open('img.jpg'))
