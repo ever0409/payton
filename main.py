@@ -277,11 +277,11 @@ def on_user_joins(m):
 
 @bot.message_handler(func=lambda message: True)
 def mo(m):
-    if mo.text == 'Photo' or mo.text == '/photo':
+    if m.text == 'Photo' or m.text == '/photo':
         urllib.urlretrieve("https://source.unsplash.com/random", "img.jpg")
         bot.send_chat_action(m.chat.id, 'upload_photo')
         bot.send_photo(m.chat.id, open('img.jpg'))
-        print 'command Sticker'
+        print 'command Photo'
         print '{}'.format(m.from_user.first_name)
         print '{}'.format(m.from_user.username)
 
