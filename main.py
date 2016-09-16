@@ -350,8 +350,8 @@ def query_text(query):
 
     hi_tmp = 'https://d85wutc1n854v.cloudfront.net/live/products/600x375/WB0PGGM81.png?v=1.0'
     hi = types.InlineQueryResultArticle('6', 'Music', types.InputTextMessageContent('*@UNFrobot music [Music name]*', parse_mode='Markdown'), thumb_url=hi_tmp)
-
-    bot.answer_inline_query(query.id, [info, randowm, joke, since, timesend, hi], cache_time=5, switch_pm_text='Welcome to UNF inline')
+    
+    bot.answer_inline_query(query.id, [info, myid, randowm, joke, since, timesend, hi], cache_time=5, switch_pm_text='Welcome to Grandex')
 
 @bot.message_handler(commands=['uptime'])
 def ss(m):
