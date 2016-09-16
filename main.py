@@ -276,8 +276,8 @@ def on_user_joins(m):
 			groupid = m.chat.id
 
 @bot.message_handler(func=lambda message: True)
-def m(m):
-    if m.text == 'Photo' or m.text == '/photo':
+def mo(m):
+    if mo.text == 'Photo' or mo.text == '/photo':
         urllib.urlretrieve("https://source.unsplash.com/random", "img.jpg")
         bot.send_chat_action(m.chat.id, 'upload_photo')
         bot.send_photo(m.chat.id, open('img.jpg'))
