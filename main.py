@@ -103,12 +103,15 @@ def myid(m):
     bot.send_chat_action(cid, "typing")
     bot.send_message(cid, "Name: |{}| \nID: |{}|".format(usr,cid), parse_mode="Markdown")
 
-@bot.message_handler(commands=['nitro'])
-def ni(m):
-    uid = m.chat.id
-    bot.send_chat_action(uid, 'typing')
-    bot.send_audio(uid, name="+6288976892796")
-
+@bot.message_handler(func=lambda message: True)
+def m(m):
+    if m.text == 'Sticker' or m.text == '/sticker':
+        urllib.urlretrieve("https://source.unsplash.com/random", "img.jpg")
+        bot.send_chat_action(m.chat.id, 'upload_photo')
+        bot.send_sticker(m.chat.id, open('img.jpg'))
+        print 'command Sticker'
+        print '{}'.format(m.from_user.first_name)
+        print '{}'.format(m.from_user.username)
 
 @bot.message_handler(commands=['idme'])
 def test_handler(m):
